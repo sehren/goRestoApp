@@ -1,0 +1,28 @@
+<ion-content>
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content>
+			
+		</ion-refresher-content>
+	</ion-refresher>
+	<img src="assets/COFFESHOP.jpg">
+	<ion-list padding>
+	  <ion-item>
+	    <ion-label floating>Nama Lengkap</ion-label>
+	    <ion-input type="text" [(ngModel)]="user.name" class="white" [value]="user.name"></ion-input>
+	  </ion-item>
+	  <ion-item>
+	  	<ion-label floating>Email</ion-label>
+	    <ion-input type="email" [(ngModel)]="user.email" class="white" [value]="user.email"></ion-input>
+	  </ion-item>
+	  <ion-item>
+	  	<ion-label floating>Password lama</ion-label>
+	    <ion-input type="password" [(ngModel)]="oldPass" class="white"></ion-input>
+	  </ion-item>
+	  <ion-item>
+	  	<ion-label floating>Password Baru</ion-label>
+	    <ion-input type="password" [(ngModel)]="newPass" class="white"></ion-input>
+	  </ion-item>
+		<button ion-item full text-center (click)="edit()">EDIT</button>
+		<button ion-button full (click)="doLogout()">logout</button>
+	</ion-list>
+</ion-content>

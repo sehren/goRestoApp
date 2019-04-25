@@ -1,0 +1,69 @@
+page-inside {
+    ion-scroll {
+        width: 100%;
+        height: 100%;
+    }
+	.toolbar-background{
+        background : transparent;
+    }
+    .scroll-content{
+        margin-top: 0px !important;
+    }
+
+    .back-button{
+        color : #fff;
+    }
+
+    .toolbar-title{
+        color :#fff;
+    }
+
+    .cover{
+        height: 250px;
+        width: 100%;
+    }
+    .swiper-slide {
+        overflow-y: scroll;
+        display: block;
+    }
+    .medium{
+        font-size: 30px;
+    }
+    .back-button-icon-md, .ion-md-cart{
+        color: #d0e2d3;
+    }
+}
+#notification-button {            
+    position: relative;
+    width: 42px;
+    top:1px;
+    right: 1px;
+    overflow: visible!important;
+}
+
+
+#notifications-badge {
+    background-color: red;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    border-radius: 100%;
+}
+// ion-segment {
+//     display: block;
+//     white-space: nowrap;
+//     font-size: 0;
+//     overflow: auto;
+
+//     &::-webkit-scrollbar {
+//         width: 0;
+//         height: 0;
+//         display: none;
+//     }
+
+//     ion-segment-button.segment-button {
+//         display: inline-block;
+//         min-width: 180px;
+//         width: auto;
+//     }
+// }

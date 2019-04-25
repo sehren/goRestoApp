@@ -1,0 +1,51 @@
+<ion-header #head no-border>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+    <ion-buttons end>
+      <button (click)="goCart()" ion-button color="light" id="notification-button">
+         <ion-badge id="notifications-badge" color="danger" *ngIf="addCart>=1">{{addCart}}</ion-badge>
+         <ion-badge id="notifications-badge" color="danger" *ngIf="addCart==0"></ion-badge>
+        <ion-icon class="medium" name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content nav-keren [header]="head">
+  <img class="cover" [src]="func.url+'/cover-restoran/'+resto.imageName">
+  <div class="detail" padding>
+  	<h2>{{resto.namaRestoran}}</h2>
+  	<span>{{resto.address}}</span>
+  </div>
+<ion-scroll scrollX="true" style="width:100vw;height:350px" >
+  <ion-segment *ngIf="slides" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+    <!-- <ion-segment-button *ngFor="let slide of slides" [value]="slide.id">
+      {{slide.nama}}
+    </ion-segment-button> -->
+    <ion-segment-button *ngFor="let slide of slides" [value]="slide.id" (click)="setTab(slide.id)">
+      {{slide.nama}}
+    </ion-segment-button>
+  </ion-segment>
+  <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-list>
+        <span *ngFor="let i of slide.content">
+	        <ion-item *ngIf="i.idMenu == slide.id">
+            <ion-avatar item-start>
+              <img [src]="func.url+'/cover-restoran/'+i.picture">
+            </ion-avatar>
+            <h2>{{i.nama}}</h2>
+            <h3></h3>
+            <p>Rp. {{i.price}}</p>
+            <button ion-button item-end *ngIf="resto.time=='buka'" (click)="add(i)">tambah</button>
+            <button ion-button item-end *ngIf="resto.time=='tutup'" disabled>tambah</button>
+	        </ion-item>
+        </span>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-scroll>
+</ion-content>

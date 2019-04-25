@@ -1,0 +1,42 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>{{type}}</ion-title><!-- 
+    <ion-buttons end>
+    	<button (click)="search()" ion-button><ion-icon name="search" class="icon-search"></ion-icon></button>
+	</ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-list>
+		<ion-grid>
+			<ion-row (click)="goSearch()">
+				<ion-col col-10>
+					<button ion-item>Cari Restoran ?</button>
+				</ion-col>
+				<ion-col col-2>
+					<button ion-button color="light" class="white">
+						<ion-icon name="search" right></ion-icon>
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-list>
+	<ion-card *ngFor="let content of item" class="detail" (click)="goInside(content.idOwner)">
+	  <img [src]="'http://localhost:3000/cover-restoran/'+content.imageName"/>
+	  <ion-card-content>
+	    <ion-card-title>
+	      {{content.namaRestoran}}
+	      </ion-card-title>
+	    <p>
+	    	{{content.address}}
+	    </p>
+	    <ion-badge *ngIf="content.time == 'buka'" color="secondary">BUKA</ion-badge>
+	    <ion-badge *ngIf="content.time == 'tutup'" color="danger">TUTUP</ion-badge>
+	  </ion-card-content>
+	</ion-card>
+</ion-content>

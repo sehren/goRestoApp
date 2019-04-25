@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>History</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+      
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <button ion-item *ngFor="let item of myOrder;let i = index" (click)="toDetail(i)">
+      <div class="title">{{item.namaRestoran}}</div><br>
+      Rp. {{item.price}}<br>
+      <small>{{item.timeOrder}}</small>
+      <div item-end *ngIf="item.isAuth == false && item.status=='closed' && item.statusOrder==''">
+        Ditolak
+      </div>
+      <div item-end *ngIf="item.isAuth == true && item.status=='open' && item.statusOrder == ''">
+        waiting
+      </div>
+      <div item-end *ngIf="item.statusOrder!='' ">
+        {{item.statusOrder}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+page-home {
+	.toolbar-md{
+		min-height:40px;
+	}
+	.toolbar-background{
+		background: #fff
+	}
+	.slide{
+		height: 30%;
+	}
+	.icon-content{
+		font-size: 50px;
+		color: #84ed8e;
+	}
+	.icon-search{
+		font-size: 50px;
+	}
+	.inside{
+		background: #fff;
+		border-radius: 3px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+		padding: 10px 0 1px 0;
+	}
+	.inside ion-label{
+		color: #4d7064;
+	}
+	.white{
+		background: #fff;
+		box-shadow: none;
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+		top: 15%;
+	}
+	.list-md{
+		margin : 0;
+	}
+	.likeSearch{
+		border: 1px solid rgba(0,0,0,0.2);
+		height: 0px;
+	}
+	.tinyfont{
+		font-weight: 100;
+	}
+	// .toolbar-background-md{
+	// 	background: #87D37C
+	// }
+	.small-avatar{
+		width: 30px;
+	}
+}

@@ -1,0 +1,23 @@
+<ion-content padding class="background">
+	<div class="login">
+		<ion-list>
+		  <ion-item>
+		    <ion-label floating>Email</ion-label>
+		    <ion-input type="email" [(ngModel)]="login.email" class="white"></ion-input>
+		  </ion-item>
+		</ion-list>
+		<ion-list>
+		  <ion-item>
+		    <ion-label floating>password</ion-label>
+		    <ion-input type="password" [(ngModel)]="login.password" class="white"></ion-input>
+		  </ion-item>
+		</ion-list>
+		<div class="center">
+			<button ion-button (click)="doLogin()" outline round color="light">Login</button>			
+		</div>
+		
+	</div>
+	<ion-fab right bottom>
+    	<button ion-fab color="danger" (click)="toRegister()"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
+</ion-content>

@@ -1,0 +1,22 @@
+page-detail {
+	.toolbar-md{
+		min-height:40px;
+	}
+	.toolbar-background{
+		background: #fff
+	}
+	.white{
+		background: #fff;
+		box-shadow: none;
+		border-bottom: 1px solid rgba(0,0,0,0.5);
+		top: 15%;
+	}
+	.card-md{
+		margin: 0px;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.list-md{
+		margin-bottom: 5px;
+	}
+}

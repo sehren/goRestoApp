@@ -1,0 +1,34 @@
+page-register {
+	.background{
+		// background : #2f3a36;
+		background: #34495E;  /* fallback for old browsers */
+		
+
+		// background: url('../../assets/7.jpg') no-repeat
+	}
+	ion-item{
+		background: transparent !important;
+	}
+	.register{
+		position: absolute;
+		top: 30%;
+		width: 90%
+	}
+	.center{
+		display: flex;
+		align-items : center;
+		justify-content:center;
+	}
+	.right{
+		display: flex;
+		align-items : flex-end;
+		justify-content:flex-end;
+	}
+	.bot{
+		position: relative;
+		top: 45%;
+	}
+	.white{
+		color: #ddd;
+	}
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin | goResto</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
+
+  <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<!-- <style type="text/css">
+	td{
+		text-align: center!important;
+	}
+</style> -->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+	<header class="main-header">
+    <!-- Logo -->
+    <a href="/admin" class="logo">
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Admin</b> goResto</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      
+      <!-- <div class="navbar-custom-menu">
+      	<ul class="nav navbar-nav">
+      		<li>
+	            <a href="/adminLogout" data-toggle="control-sidebar"><i class="fa fa-sign-out"></i></a>
+          	</li>
+      	</ul>
+      </div> -->
+    </nav>
+  </header>
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../img/user1.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Admin</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="/admin"><i class="fa fa-link"></i> <span>Validasi Data Restoran</span></a></li>
+        <li class="active"><a href="/pengujian"><i class="fa fa-link"></i> <span>Pengujian</span></a></li>
+        <li><a href="/adminLogout"><i class="fa fa-link"></i> <span>Logout</span></a></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <div class="content-wrapper">
+	  <section class="content-header">
+	      <h1>
+	        Pengujian ACO dan ACOTS
+	      </h1>
+    </section>
+    <section class="content">
+			<div class="row">
+				<div class="col-md-12">
+					<br>
+					<table class="tableKoki">
+						<tr>
+							<td><input type="number" name="koki" id="koki" placeholder="Jumlah Koki.." class="form-control"></td>
+						</tr>
+						<tr>
+							<td><input type="number" name="order" id="order" placeholder="Jumlah Order.." class="form-control"></td>
+						</tr>
+						<tr>
+							<td><br><button type="submit" class="submit btn btn-primary">Submit</button></td>
+						</tr>
+					</table>
+				</div>
+			</div><br>
+			<div class="box kokii hidden">
+				<div class="box-header">
+					<h3 class="box-title">waktu Pembuatan</h3>
+				</div>
+				<div class="box-body table-responsive no-padding">
+					<table class="formKoki table table-hover">
+					</table>
+				</div>
+			</div>
+
+			<table class="formOrder">
+
+			</table>
+			<br>
+			<button class="generate btn btn-primary hidden">Generate</button>
+			<div class="box hidden">
+        <div class="box-header">
+          <h3 class="box-title">Hasil Pengujian ACO</h3>
+        </div>
+    		<div class="box-body table-responsive no-padding">
+					<table class="jadwal table table-hover" hidden>
+					</table>
+				</div>
+			</div>
+			<div class="box hidden">
+        <div class="box-header">
+          <h3 class="box-title">Hasil Pengujian ACO Tabu</h3>
+        </div>
+    		<div class="box-body table-responsive no-padding">
+					<table class="jadwalTabu table table-hover" hidden>
+					</table>
+				</div>
+			</div>
+			<div class="box hidden">
+        <div class="box-header">
+          <h3 class="box-title">Perhitungan MAE</h3>
+        </div>
+				<div class="box-body table-responsive no-padding">
+					<table class="hasil table table-hover" hidden>
+						<tr>
+							<th>Cmax : </th>
+							<th>ACO</th>
+							<th>ACO Tabu</th>
+							<th>error</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<button class="mae btn btn-primary hidden">Hitung MAE</button>
+			<div class="hasilMae"></div>
+		</section>
+	</div>
+</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="../js/aco.js"></script>
+	<script src="../js/acots.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#jlhkoki").change(function(){
+				$('.jlkoki').empty()
+				var jlhKoki = $("#jlhkoki").val()
+				for (var i = 1; i <=jlhKoki; i++) {
+					$('.jlkoki').append("<tr><td>Nama Koki "+i+" : </td><td><input type='text' id='koki"+i+"'></td></tr>")
+				}
+				$('.jlkoki').append("<button class='submitNama'>Submit</button>")
+			})
+			var jlkoki = 0, jlorder = 0
+			$('.submit').click(function(){
+				jlkoki = $('#koki').val()
+				jlorder = $('#order').val()
+				$('.formKoki, .formOrder').html('')
+				$('.formKoki').append('<tr class="title"><td></td></tr>')
+				$('.formOrder').append('<tr><td></td><td>Quantity</td></tr>')
+				for(var i=0;i<jlorder;i++){
+					$('.title').append('<th>Menu'+ (i+1)+'</th>')
+					$('.formOrder').append('<tr><th>Menu'+(i+1)+' &nbsp;&nbsp;&nbsp;&nbsp;</th><td><input type="number" class="qty'+i+' form-control"</td></tr>')
+				}
+				for(var i=0;i<jlkoki;i++){
+					$('.formKoki').append('<tr class="'+i+'koki"><th>KOKI ke '+(i+1)+'</th></tr>')
+					for(var j=0;j<$('#order').val();j++){
+						$('.'+i+'koki').append('<td><input type="number" class="menu'+j+'koki'+i+' form-control"></td>')
+					}
+				}
+				$('.generate').removeClass('hidden');
+				$('.kokii').removeClass('hidden')
+			})
+			var num = 1
+			var errorMae = []
+			$('.generate').click(function(){
+				$('.box').removeClass('hidden')
+				var order = []
+				var koki = []
+				for(var i=0;i<jlorder;i++){
+					if($('.qty'+i).val()!='')
+					order.push({nama : 'menu'+(i+1),qty : parseInt($('.qty'+i).val())})
+				}
+				for(var i=0;i<jlkoki;i++){
+					koki.push([])
+					for(var j=0;j<jlorder;j++){
+						if($('.menu'+j+'koki'+i).val()!='')
+						koki[i].push({nama : 'menu'+(j+1),estimasi : parseInt($('.menu'+j+'koki'+i).val()),idKoki : (i+1)})
+					}
+				}
+				var hasilAco = aco(JSON.parse(JSON.stringify(koki)),JSON.parse(JSON.stringify(order)))
+				var hasilAcoTs = acots(JSON.parse(JSON.stringify(koki)),JSON.parse(JSON.stringify(order)))
+				console.log(hasilAco)
+				console.log(hasilAcoTs)
+				$('.hasil').removeAttr('hidden')
+				$('.mae').removeClass('hidden')
+				$('.jadwal').removeAttr('hidden')
+				$('.jadwalTabu').removeAttr('hidden')
+				$('.jadwal').html('')
+				$('.jadwalTabu').html('')
+				$('.hasil').append('<tr><td>Percobaan ke '+num+'</td><td>'+Math.max.apply(Math,hasilAco.total)+'</td><td>'+Math.max.apply(Math,hasilAcoTs.total)+'</td><td>'+Math.abs(Math.max.apply(Math,hasilAcoTs.total)-Math.max.apply(Math,hasilAco.total))+'</td></tr>')
+				errorMae.push(Math.abs(Math.max.apply(Math,hasilAcoTs.total)-Math.max.apply(Math,hasilAco.total)))
+				$('.jadwal').append('<tr><th>Koki</th>')
+				for(var i=0;i<order.length;i++){
+						$('.jadwal tr').append('<th>Menu'+(i+1)+'</th>')
+				}
+				$('.jadwal tr').append('<th>Hasil</th></tr>')
+				var istr = false
+				for(var i=0;i<koki.length;i++){
+					$('.jadwal').append('<tr class="hasilACO'+i+'"><th>'+(i+1)+'</th>')
+					for(var k=0;k<order.length;k++){
+						istr = false
+						for(var j=0;j<hasilAco.rute.length;j++){
+							if(hasilAco.rute[j].idKoki==i+1 && hasilAco.rute[j].nama=='menu'+(k+1)){
+								$('.hasilACO'+i).append('<td>'+hasilAco.rute[j].nama+'('+hasilAco.rute[j].estimasi+')</td>')
+								istr = true
+								break
+							}
+						}
+						if(!istr){
+							$('.hasilACO'+i).append('<td>-</td>')
+							istr = false
+						}
+					}
+					$('.hasilACO'+i).append('<td>'+hasilAco.total[i]+'</td>')
+					$('.jadwal').append('</tr>')
+				}
+
+
+				//acots
+				$('.jadwalTabu').append('<tr><th>Koki</th>')
+				for(var i=0;i<order.length;i++){
+						$('.jadwalTabu tr').append('<th>Menu'+(i+1)+'</th>')
+				}
+				$('.jadwalTabu tr').append('<th>Hasil</th></tr>')
+				var istr = false
+				for(var i=0;i<koki.length;i++){
+					$('.jadwalTabu').append('<tr class="hasilACOTABU'+i+'"><th>'+(i+1)+'</th>')
+					for(var k=0;k<order.length;k++){
+						istr = false
+						for(var j=0;j<hasilAcoTs.rute.length;j++){
+							if(hasilAco.rute[j].idKoki==i+1 && hasilAcoTs.rute[j].nama=='menu'+(k+1)){
+								$('.hasilACOTABU'+i).append('<td>'+hasilAcoTs.rute[j].nama+'('+hasilAcoTs.rute[j].estimasi+')</td>')
+								istr = true
+								break
+							}
+						}
+						if(!istr){
+							$('.hasilACOTABU'+i).append('<td>-</td>')
+							istr = false
+						}
+					}
+					$('.hasilACOTABU'+i).append('<td>'+hasilAcoTs.total[i]+'</td>')
+					$('.jadwalTabu').append('</tr>')
+				}
+				num++
+			})
+
+
+
+			$('.mae').click(function(){
+				$('.hasilMae').html('')
+				var totalerr = (errorMae).reduce((a, b) => a + b, 0)
+				var banyakerr = errorMae.length
+				var hasilmae = totalerr/banyakerr
+				$('.hasilMae').append('Hasil MAE : '+totalerr+' / '+banyakerr+' = '+hasilmae)
+			})
+
+		})
+	</script>
+</body>
+</html>

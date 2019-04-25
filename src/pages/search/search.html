@@ -1,0 +1,27 @@
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="search" (ionChange)="Search()" placeholder="Cari restoran apa ?" clearInput autofocus></ion-input>
+      <button ion-button icon-only clear item-left (click)="tutup()"><ion-icon name="arrow-back"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of items">
+      <h2>Nama : {{item.nama}}</h2>
+      <p>Alamat : {{item.alamat}}</p>
+      <ion-badge *ngIf="item.nilai<50 && item.nilai>0" color="danger">nilai ente {{item.nilai}}, tetap semangat belajar</ion-badge>
+      <ion-badge *ngIf="item.nilai>=50 && item.nilai<=100">Selamat!! nilai ente {{item.nilai}},pertahankan!!</ion-badge>
+    </ion-item>
+  </ion-list> -->
+  <ion-list>
+    <ion-item *ngFor="let content of resto" (click)="goInside(content.idOwner)">
+      <ion-avatar item-start>
+        <img [src]="func.url+'/cover-restoran/'+content.imageName" onError="this.onerror=null;this.src='http://localhost:3000/cover-restoran/No-image.jpg';"/>
+      </ion-avatar>
+      <h2>{{content.namaRestoran}}</h2>
+      <p>{{content.address}}</p>
+      <ion-badge *ngIf="content.time == 'buka'" color="secondary">BUKA</ion-badge>
+      <ion-badge *ngIf="content.time == 'tutup'" color="danger">TUTUP</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>

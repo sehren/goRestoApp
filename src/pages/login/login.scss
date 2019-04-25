@@ -1,0 +1,46 @@
+page-login {
+	.background{
+		// background : linear-gradient(202deg, #2f3a36 78%, #fff 79%);
+		// background: url('../../assets/7.jpg') no-repeat
+		background: #34495E;  /* fallback for old browsers */
+		
+	}
+	ion-item{
+		background: transparent !important;
+	}
+	.login{
+		position: relative;
+		top: 40%;
+		padding: 0 5% 0 5%
+	}
+	.center{
+		display: flex;
+		align-items : center;
+		justify-content:center;
+	}
+	.center button{
+		width: 50%;
+		height: 40px;
+	}
+	.right{
+		display: flex;
+		align-items : flex-end;
+		justify-content:flex-end;
+	}
+	.bot{
+		position: relative;
+		top: 45%;
+	}
+	.white{
+		color: #ddd;
+	}
+	hr{
+		height: 5px;
+
+	}
+	.or-text{
+		color: #ddd;
+		font-size: 15px;
+		font-weight: bold;
+	}
+}

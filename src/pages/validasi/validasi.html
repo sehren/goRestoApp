@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pesanan</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="valid" *ngIf="isValid==false && status=='open'">
+		<img src="assets/waiting.gif">
+		<h4 text-center>Silahkan Tunggu</h4>
+		<p text-center>kami akan memastikan pesanan anda</p>
+	</div>
+	<div class="valid" *ngIf="isValid==false && status=='closed' && order.statusOrder=='ditolak'" text-center>
+		<img class="setsize" src="assets/cancel.jpg">
+		<h4 text-center>Maaf Pesanan anda ditolak</h4>
+		<p text-center>{{order.alasan}}</p>
+		<button ion-button (click)="back()" *ngIf="buttonBack==true">Back to Menu</button>
+	</div>
+	<div *ngIf="isValid==true">
+		<div text-center>
+	  		<h2 center>{{resto.namaRestoran}}</h2>
+	  	</div>
+		<ion-list>
+			<button ion-item *ngFor="let Order of order.data">
+				<div class="gede">{{Order.nama}}</div><br>
+				<p>{{Order.qty}} Pcs</p>
+				<div class="gede" item-end>Rp. {{Order.price*Order.qty}}</div>
+			</button>
+			<button ion-item>
+				<div class="gede" item-end>total Rp. {{order.price}}</div>
+			</button>
+		</ion-list>
+		<div class="center-bottom" *ngIf="order.isAuth == true && order.status=='open' && order.statusOrder == '' || order.statusOrder == 'waiting'">
+			<p text-center>Menunggu Antrian</p>
+			<button ion-button full danger (click)="batal(order.idOrder)">Batalkan Order</button>
+		</div>
+		<div class="center-bottom" *ngIf="order.statusOrder == 'mengerjakan'">
+			<p text-center>sedang dalam pembuatan</p>
+			<button ion-button full danger disabled>Batalkan Order</button>
+		</div>
+		<div class="center-bottom" *ngIf="order.statusOrder == 'selesai' && order.isBayar==false && order.telahBayar==false">
+			<p text-center>Pesanan anda telah selesai</p>
+			<button ion-button full (click)="bayar()">Request Struct</button>
+		</div>
+		<div class="center-bottom" *ngIf="order.isBayar==true && order.telahBayar==false">
+			<p text-center>Pelayan akan menghampiri anda</p>
+		</div>
+		<div class="center-bottom" *ngIf="order.telahBayar==true">
+			<h4 text-center>Selesai</h4>
+			<p text-center>terimakasih, Semoga hari anda menyenangkan</p>
+		</div>
+		<div class="center-bottom" *ngIf="order.statusOrder == 'dibatalkan'">
+			<p text-center>pesanan anda telah dibatalkan</p>
+		</div>
+	</div>
+	<div *ngIf="order.statusOrder=='batal'">
+		<div text-center>
+	  		<h2 center>{{resto.namaRestoran}}</h2>
+	  	</div>
+		<ion-list>
+			<button ion-item *ngFor="let Order of order.data">
+				<div class="gede">{{Order.nama}}</div><br>
+				<p>{{Order.qty}} Pcs</p>
+				<div class="gede" item-end>Rp. {{Order.price*Order.qty}}</div>
+			</button>
+			<button ion-item>
+				<div class="gede" item-end>total Rp. {{order.price}}</div>
+			</button>
+		</ion-list>
+		<div class="center-bottom">
+			<p text-center>pesanan anda telah dibatalkan</p>
+		</div>
+	</div>
+</ion-content>
